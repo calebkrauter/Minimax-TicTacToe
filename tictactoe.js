@@ -20,13 +20,13 @@ var GameBoard = function () {
     this.playerOne = true;
 };
 
-GameBoard.prototype.cellFree = function (cell) {
+GameBoard.prototype.emptySpace = function (cell) {
     if (this.X.indexOf(cell) < 0 && this.O.indexOf(cell) < 0) return true;
     else return false;
 };
 
 GameBoard.prototype.move = function (cell) {
-    if (this.cellFree(cell)) {
+    if (this.emptySpace(cell)) {
         this.playerOne ? this.X.push(cell) : this.O.push(cell);
         var c = this.cells[cell - 1];
         if (this.mainboard) {
